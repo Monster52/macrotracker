@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'calendar/index'
+
   get 'profiles/index'
 
 	resources :goals

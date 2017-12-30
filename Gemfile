@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'materialize-sass'
 gem 'simple_form'
+gem "simple_calendar", "~> 2.0"
+
 
 
 group :development, :test do
