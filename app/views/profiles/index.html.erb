@@ -8,5 +8,17 @@
 	<h4><%= link_to "Set Goals", new_goal_path %></h4>
 <% end %>
 
+<h3>Current Daily Macros</h3>
+<% if @user.tracker %> <! Need to check date so that it restarts every day ->
+	<h4>Protein: <%= @user.tracker.protein %>g</h4>
+	<h4>Carbohydrate: <%= @user.tracker.carbohydrate %>g</h4>
+	<h4>Fat: <%= @user.tracker.fat %>g</h4>
+	<p><%= link_to "Update Daily Tracker", edit_tracker_path(@user.tracker.id) %></p>
+<% else %>
+	<h4><%= link_to "Start Your Daily Tracking", new_tracker_path %></h4>
+<% end %>
+
+<%= pie_chart({"Protein" => @user.tracker.protein, "Carbohydrate" => @user.tracker.carbohydrate, "Fat" => @user.tracker.fat}) %>
+
 <h2>See your progress</h2>
 <%= link_to "Calendar", calendar_index_path %>

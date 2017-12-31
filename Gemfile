@@ -29,6 +29,8 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'simple_form'
 gem "simple_calendar", "~> 2.0"
 gem 'jquery-rails'
+gem "chartkick"
+
 
 
 
