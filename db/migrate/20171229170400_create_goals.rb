@@ -4,7 +4,7 @@ class CreateGoals < ActiveRecord::Migration[5.1]
       t.integer :protein
       t.integer :carbohydrate
       t.integer :fat
-      t.references :user, foreign_key: true
+      t.integer :user_id
 
       t.timestamps
     end
