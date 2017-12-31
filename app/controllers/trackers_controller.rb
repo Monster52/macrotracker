@@ -1,6 +1,5 @@
 class TrackersController < ApplicationController
 	def index
-    @tracker = Tracker.all
 	end
 
 	def show
