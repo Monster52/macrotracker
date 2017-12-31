@@ -10,7 +10,7 @@
 <% end %>
 
 <h3>Current Daily Macros</h3>
-<% if @user.trackers.last.updated_at.to_date == Date.today %>
+<% if @user.trackers %>
 	<h4>Protein: <%= @user.trackers.posted_today.pluck(:protein).inject(:+) %>g</h4>
 	<h4>Carbohydrate: <%= @user.trackers.posted_today.pluck(:carbohydrate).inject(:+) %>g</h4>
 	<h4>Fat: <%= @user.trackers.posted_today.pluck(:fat).inject(:+) %>g</h4>

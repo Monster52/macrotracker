@@ -2,8 +2,8 @@ class ProfilesController < ApplicationController
   def index
   	@user = current_user
     @goal = current_user.goal
-# opton if not created
-    if @user.trackers && @user.trackers.last.updated_at.to_date == Date.today
+# opton if not there
+    if @user.trackers.posted_today.count > 0
   	   macro = MacroService.new({protein: @user.trackers.pluck(:protein).inject(:+),
   			   											carbohydrate: @user.trackers.pluck(:carbohydrate).inject(:+), 
   		  												fat: @user.trackers.pluck(:fat).inject(:+)})
