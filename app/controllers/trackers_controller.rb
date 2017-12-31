@@ -1,5 +1,6 @@
 class TrackersController < ApplicationController
 	def index
+    @trackers = current_user.trackers.posted_today
 	end
 
 	def show
@@ -11,8 +12,7 @@ class TrackersController < ApplicationController
 	end
 
 	def create
-		@tracker = Tracker.new(tracker_params)
-		@tracker.user = current_user
+		@tracker = current_user.trackers.build(tracker_params)
 
   	if @tracker.save
       flash[:notice] = "Daily tracker was saved successfully."

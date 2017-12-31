@@ -1,0 +1,7 @@
+<h3>Day by Day</h3>
+<% current_user.trackers.posted_today.each do |tracker| %>
+	<h5><%= tracker.created_at.to_date %></h5>
+	<p>Protein: <%= tracker.protein %></p>
+	<p>Protein: <%= tracker.carbohydrate %></p>
+	<p>Protein: <%= tracker.fat %></p>
+<% end %>
