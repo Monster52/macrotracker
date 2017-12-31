@@ -18,7 +18,7 @@
 	<h4><%= link_to "Start Your Daily Tracking", new_tracker_path %></h4>
 <% end %>
 
-<%= pie_chart({"Protein" => @user.tracker.protein, "Carbohydrate" => @user.tracker.carbohydrate, "Fat" => @user.tracker.fat}) %>
+<%= pie_chart({"Protein" => @protein_percent.to_i, "Carbohydrate" => @carbohydrate_percent.to_i, "Fat" => @fat_percent.to_i}) %>
 
 <h2>See your progress</h2>
 <%= link_to "Calendar", calendar_index_path %>
