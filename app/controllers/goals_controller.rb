@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
 	def index
   	@user = current_user
-  	@goal = current_user.goal
+  	@goal = @user.goal
   end
 
   def show
