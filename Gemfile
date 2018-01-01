@@ -24,12 +24,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
-gem 'materialize-sass'
 gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'simple_form'
 gem "simple_calendar", "~> 2.0"
 gem 'jquery-rails'
 gem "chartkick"
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 
 

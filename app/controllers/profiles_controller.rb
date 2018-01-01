@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   def index
   	@user = current_user
     @goal = current_user.goal
-# opton if not there
+
     if @user.trackers.posted_today.count > 0
   	   macro = MacroService.new({protein: @user.trackers.pluck(:protein).inject(:+),
   			   											carbohydrate: @user.trackers.pluck(:carbohydrate).inject(:+), 

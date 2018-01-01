@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'calendar/index'
 
   get 'profiles/index'
+  get 'trackers/highlight'
 
 	resources :goals
 	resources :trackers

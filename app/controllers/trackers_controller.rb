@@ -23,22 +23,27 @@ class TrackersController < ApplicationController
     end
 	end
 
-	def edit
-  	@tracker = Tracker.find(params[:id])
+  def highlight
+    @tracker_met = CalendarService.new({goal: current_user.goal, tracker: current_user.trackers}).highlight
+    render :json => @tracker_met
   end
 
-  def update
-  	@tracker = Tracker.find(params[:id])
-  	@tracker.assign_attributes(tracker_params)
+ #  def edit
+ #  	@tracker = Tracker.find(params[:id])
+ #  end
 
-  	if @tracker.save
-      flash[:notice] = "Tracker was updated successfully."
-      redirect_to profiles_index_path
-    else
-      flash.now[:alert] = "Error updating tracker. Please try again."
-      render :edit
-    end
-  end
+ #  def update
+ #  	@tracker = Tracker.find(params[:id])
+ #  	@tracker.assign_attributes(tracker_params)
+
+ #  	if @tracker.save
+ #      flash[:notice] = "Tracker was updated successfully."
+ #      redirect_to profiles_index_path
+ #    else
+ #      flash.now[:alert] = "Error updating tracker. Please try again."
+ #      render :edit
+ #    end
+ #  end
 
 	private
 
