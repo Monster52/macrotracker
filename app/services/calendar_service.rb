@@ -5,17 +5,17 @@ class CalendarService
 		@tracker = params[:tracker]
 	end
 
-	def highlight
-		if check_protein && check_carbohydrate && check_fat
-			true
-			@tracker.posted_today.each do |tracker|
-				tracker.met = true
-				tracker.met_date = tracker.created_at
-			end
-		else
-			false
-		end
-	end
+	# def highlight
+	# 	if check_protein && check_carbohydrate && check_fat
+	# 		true
+	# 		@tracker.posted_today.each do |tracker|
+	# 			tracker.met = true
+	# 			tracker.met_date = tracker.created_at
+	# 		end
+	# 	else
+	# 		false
+	# 	end
+	# end
 
 	private
 

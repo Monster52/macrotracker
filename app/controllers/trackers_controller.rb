@@ -1,6 +1,16 @@
 class TrackersController < ApplicationController
 	def index
+    @user = current_user
     @trackers = current_user.trackers.posted_today
+    @goal_met = GoalMetService.new({goal: current_user.goal, trackers: current_user.trackers.posted_today}).highlight
+    
+    macro = MacroService.new({protein: @user.trackers.posted_today.pluck(:protein).inject(:+),
+                              carbohydrate: @user.trackers.posted_today.pluck(:carbohydrate).inject(:+), 
+                              fat: @user.trackers.posted_today.pluck(:fat).inject(:+)})
+
+    @protein_percent = macro.protein
+    @carbohydrate_percent = macro.carbohydrate
+    @fat_percent = macro.fat
 	end
 
 	def show
@@ -22,28 +32,6 @@ class TrackersController < ApplicationController
       render :new
     end
 	end
-
-  def highlight
-    @tracker_met = CalendarService.new({goal: current_user.goal, tracker: current_user.trackers}).highlight
-    render :json => @tracker_met
-  end
-
- #  def edit
- #  	@tracker = Tracker.find(params[:id])
- #  end
-
- #  def update
- #  	@tracker = Tracker.find(params[:id])
- #  	@tracker.assign_attributes(tracker_params)
-
- #  	if @tracker.save
- #      flash[:notice] = "Tracker was updated successfully."
- #      redirect_to profiles_index_path
- #    else
- #      flash.now[:alert] = "Error updating tracker. Please try again."
- #      render :edit
- #    end
- #  end
 
 	private
 

@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
       @protein_percent = macro.protein
       @carbohydrate_percent = macro.carbohydrate
       @fat_percent = macro.fat
-    else
+    elsif @user.trackers.posted_today.count == 0
       @tracker = Tracker.new
       @tracker.user_id = @user.id
     end
