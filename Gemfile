@@ -34,6 +34,7 @@ gem 'momentjs-rails'
 
 group :test do
   gem 'faker'
+  gem 'simplecov', :require => false
 end
 
 group :development, :test do
