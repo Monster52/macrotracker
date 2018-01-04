@@ -32,14 +32,19 @@ gem "chartkick"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
-
-
-
+group :test do
+  gem 'faker'
+  gem 'simplecov', :require => false
+end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'shoulda'
+  gem 'factory_bot_rails'
 end
 
 group :development do

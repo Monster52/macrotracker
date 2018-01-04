@@ -5,6 +5,10 @@ class Tracker < ApplicationRecord
 
   belongs_to :user
 
+  validates :protein, presence: :true
+  validates :carbohydrate, presence: :true
+  validates :fat, presence: :true
+
   private
 
   def set_default_values
